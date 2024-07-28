@@ -18,7 +18,7 @@ app.get("/", (_, res) => {
   res.json({ message: "hello" });
 });
 
-app.use((err: any, _, res, _) => {
+app.use((err: any, _, res, _1) => {
   if (err.type === "auth") {
     res.status(401).json({ message: "Unauthorized" });
   } else if (err.type === "input") {
