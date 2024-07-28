@@ -96,7 +96,7 @@ router.post("/update-point", ...updatePointPostFields, () => {});
 
 router.delete("/update-point/:id", () => {});
 
-router.use((err: any, _, res, _) => {
+router.use((err: any, _, res, _1) => {
   if (err.type === "auth") {
     res.status(401).json({ message: "Unauthorized" });
   } else if (err.type === "input") {
