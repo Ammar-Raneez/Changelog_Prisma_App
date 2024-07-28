@@ -96,4 +96,14 @@ router.post("/update-point", ...updatePointPostFields, () => {});
 
 router.delete("/update-point/:id", () => {});
 
+router.use((err: any, _, res, _) => {
+  if (err.type === "auth") {
+    res.status(401).json({ message: "Unauthorized" });
+  } else if (err.type === "input") {
+    res.status(400).json({ message: "Invalid input" });
+  } else {
+    res.status(500).json({ message: "Something went wrong" });
+  }
+});
+
 export default router;
